@@ -1,0 +1,55 @@
+/* Write your CSS code here */
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.heading {
+  font-size: 30px;
+  color: #ea580c;
+}
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.firstname {
+  font-size: 10px;
+  color: #475569;
+}
+.firstnameinput {
+  font-size: 10px;
+  color: #9aa5b1;
+  border: 1px solid #cbd2d9;
+}
+.submitbutton {
+  font-size: 10px;
+  padding: 3px;
+  color: #ffffff;
+  background-color: #ea580c;
+  border-radius: 5px;
+}
+.anothersubmitcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  width: 50px;
+  height: 50px;
+}
+.successfullpara {
+  font-size: 20px;
+  color: #475569;
+}
+.anotherresponsebutton {
+  font-size: 10px;
+  color: #ffffff;
+  background-color: #ea580c;
+  border-radius: 5px;
+}
