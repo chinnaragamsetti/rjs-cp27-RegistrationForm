@@ -7,6 +7,16 @@
   align-items: center;
   height: 100vh;
 }
+.subcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px;
+  align-items: center;
+  box-shadow: 1px 1px 3px 1px lightgrey;
+  border-radius: 5px;
+  width: 300px;
+}
 .heading {
   font-size: 30px;
   color: #ea580c;
@@ -14,17 +24,24 @@
 .formcontainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 200px;
 }
 .firstname {
   font-size: 10px;
   color: #475569;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 .firstnameinput {
   font-size: 10px;
   color: #9aa5b1;
   border: 1px solid #cbd2d9;
+  padding: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-shadow: 1px 1px 3px 1px lightgrey;
 }
 .submitbutton {
   font-size: 10px;
@@ -32,6 +49,10 @@
   color: #ffffff;
   background-color: #ea580c;
   border-radius: 5px;
+  align-self: center;
+  border: 0px;
+  padding: 10px;
+  cursor: pointer;
 }
 .anothersubmitcontainer {
   display: flex;
@@ -52,4 +73,7 @@
   color: #ffffff;
   background-color: #ea580c;
   border-radius: 5px;
+  border: 0px;
+  padding: 5px;
+  cursor: pointer;
 }
