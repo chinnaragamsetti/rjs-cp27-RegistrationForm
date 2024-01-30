@@ -18,31 +18,31 @@ class RegistrationForm extends Component {
     if (firstName !== '' && lastName !== '') {
       this.setState(prevState => ({submit: !prevState.submit}))
     }
-
   }
 
   onChangefirstname = event => {
-      this.setState({firstName: event.target.value})
+    this.setState({firstName: event.target.value})
   }
 
-
   onChangelastname = event => {
-      this.setState({lastName: event.target.value})
-    
+    this.setState({lastName: event.target.value})
   }
 
   onBlurfirstname = event => {
     if (event.target.value === '') {
-      this.setState(prevState => ({firstnameerrormsg:!prevState.firstnameerrormsg})
+      this.setState(prevState => ({
+        firstnameerrormsg: !prevState.firstnameerrormsg,
+      }))
     }
   }
 
-    onBlurlastname = event => {
-    if (event.target.value === ''){
-      this.setState(prevState => ({lastnameerrormsg:!prevState.lastnameerrormsg})
+  onBlurlastname = event => {
+    if (event.target.value === '') {
+      this.setState(prevState => ({
+        lastnameerrormsg: !prevState.lastnameerrormsg,
+      }))
     }
   }
-
 
   submitForm = () => {
     const {firstName, lastName, errormsg} = this.state
