@@ -17,6 +17,11 @@ class RegistrationForm extends Component {
 
     if (firstName !== '' && lastName !== '') {
       this.setState(prevState => ({submit: !prevState.submit}))
+    } else {
+      this.setState(prevState => ({
+        firstnameerrormsg: !prevState.firstnameerrormsg,
+        seconderrormsg: !prevState.secondnameerrormsg,
+      }))
     }
   }
 
