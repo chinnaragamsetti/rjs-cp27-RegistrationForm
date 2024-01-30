@@ -15,35 +15,34 @@ class RegistrationForm extends Component {
     event.preventDefault()
     const {firstName, lastName} = this.state
 
-    if (firstName === '' || lastName === '') {
-      this.setState(prevState => ({
-        firstnameerrormsg: !prevState.firstnameerrormsg,
-        lastnameerrormsg: !prevState.lastnameerrormsg,
-      }))
-    } else {
+    if (firstName !== '' && lastName !== '') {
       this.setState(prevState => ({submit: !prevState.submit}))
     }
+
   }
 
   onChangefirstname = event => {
+      this.setState({firstName: event.target.value})
+  }
+
+
+  onChangelastname = event => {
+      this.setState({lastName: event.target.value})
+    
+  }
+
+  onBlurfirstname = event => {
     if (event.target.value === '') {
-      this.setState(prevState => ({
-        firstnameerrormsg: !prevState.firstnameerrormsg,
-      }))
-    } else {
-      this.setState(prevState => ({firstName: event.target.value}))
+      this.setState(prevState => ({firstnameerrormsg:!prevState.firstnameerrormsg})
     }
   }
 
-  onChangelastname = event => {
-    if (event.target.value === '') {
-      this.setState(prevState => ({
-        lastnameerrormsg: !prevState.lastnameerrormsg,
-      }))
-    } else {
-      this.setState(prevState => ({lastName: event.target.value}))
+    onBlurlastname = event => {
+    if (event.target.value === ''){
+      this.setState(prevState => ({lastnameerrormsg:!prevState.lastnameerrormsg})
     }
   }
+
 
   submitForm = () => {
     const {firstName, lastName, errormsg} = this.state
@@ -58,7 +57,8 @@ class RegistrationForm extends Component {
           type="text"
           value={firstName}
           id="first"
-          onBlur={this.onChangefirstname}
+          onChange={this.onChangefirstname}
+          onBlur={this.onBlurfirstname}
         />
         {errormsg && <p className="error">Required</p>}
         <label className="firstname" htmlFor="last">
@@ -70,14 +70,11 @@ class RegistrationForm extends Component {
           type="text"
           value={lastName}
           id="last"
-          onBlur={this.onChangelastname}
+          onChange={this.onChangelastname}
+          onBlur={this.onBlurlastname}
         />
         {errormsg && <p className="error">Required</p>}
-        <button
-          type="button"
-          className="submitbutton"
-          onClick={this.onSubmitFrom}
-        >
+        <button type="submit" className="submitbutton">
           Submit
         </button>
       </form>
