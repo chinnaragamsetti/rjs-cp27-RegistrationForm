@@ -7,8 +7,8 @@ class RegistrationForm extends Component {
     submit: false,
     firstName: '',
     lastName: '',
-    firstnameerrormsg: false,
-    lastnameerrormsg: false,
+    firstNameErrormsg: false,
+    lastNameErrormsg: false,
   }
 
   onSubmitForm = event => {
@@ -16,27 +16,37 @@ class RegistrationForm extends Component {
     const {firstName, lastName} = this.state
 
     if (firstName !== '' && lastName !== '') {
-      this.setState(prevState => ({submit: !prevState.submit}))
-    } else {
       this.setState(prevState => ({
-        firstnameerrormsg: !prevState.firstnameerrormsg,
-        seconderrormsg: !prevState.secondnameerrormsg,
+        submit: !prevState.submit,
       }))
+    } else if(firstName==='') {
+      this.setState({firstNameErrormsg: true})
+    }
+    else if (lastName===''{
+        this.setState({lastNameErrormsg:true})
+
+    }
+    else{
+        this.setState({lastNameErrormsg:true,firstNameErrormsg:true})
     }
   }
 
   onChangefirstname = event => {
-    this.setState({firstName: event.target.value})
+    this.setState({
+      firstName: event.target.value,
+    })
   }
 
   onChangelastname = event => {
-    this.setState({lastName: event.target.value})
+    this.setState({
+      lastName: event.target.value,
+    })
   }
 
   onBlurfirstname = event => {
     if (event.target.value === '') {
       this.setState(prevState => ({
-        firstnameerrormsg: !prevState.firstnameerrormsg,
+        firstNameErrormsg: true,
       }))
     }
   }
@@ -44,13 +54,28 @@ class RegistrationForm extends Component {
   onBlurlastname = event => {
     if (event.target.value === '') {
       this.setState(prevState => ({
-        lastnameerrormsg: !prevState.lastnameerrormsg,
+        lastNameErrormsg: true,
       }))
     }
   }
 
+  onSubmitanother = () => {
+    this.setState(prevState => ({
+      submit: false,
+      firstName: '',
+      lastName: '',
+      firstNameErrormsg: false,
+      lastNameErrormsg: false,
+    }))
+  }
+
   submitForm = () => {
-    const {firstName, lastName, errormsg} = this.state
+    const {
+      firstName,
+      lastName,
+      firstNameErrormsg,
+      lastNameErrormsg,
+    } = this.state
     return (
       <form className="formcontainer" onSubmit={this.onSubmitForm}>
         <label className="firstname" htmlFor="first">
@@ -65,7 +90,7 @@ class RegistrationForm extends Component {
           onChange={this.onChangefirstname}
           onBlur={this.onBlurfirstname}
         />
-        {errormsg && <p className="error">Required</p>}
+        {firstNameErrormsg && <p className="error">Required</p>}
         <label className="firstname" htmlFor="last">
           LAST NAME
         </label>
@@ -78,16 +103,12 @@ class RegistrationForm extends Component {
           onChange={this.onChangelastname}
           onBlur={this.onBlurlastname}
         />
-        {errormsg && <p className="error">Required</p>}
+        {lastNameErrormsg && <p className="error">Required</p>}
         <button type="submit" className="submitbutton">
           Submit
         </button>
       </form>
     )
-  }
-
-  onSubmitanother = () => {
-    this.setState(prevState => ({submit: !prevState.submit}))
   }
 
   successfullContainer = () => (
