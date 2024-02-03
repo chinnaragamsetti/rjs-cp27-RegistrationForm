@@ -19,15 +19,12 @@ class RegistrationForm extends Component {
       this.setState(prevState => ({
         submit: !prevState.submit,
       }))
-    } else if(firstName==='') {
+    } else if (firstName === '' && lastName === '') {
+      this.setState({lastNameErrormsg: true, firstNameErrormsg: true})
+    } else if (firstName === '') {
       this.setState({firstNameErrormsg: true})
-    }
-    else if (lastName===''{
-        this.setState({lastNameErrormsg:true})
-
-    }
-    else{
-        this.setState({lastNameErrormsg:true,firstNameErrormsg:true})
+    } else if (lastName === '') {
+      this.setState({lastNameErrormsg: true})
     }
   }
 
@@ -111,7 +108,7 @@ class RegistrationForm extends Component {
     )
   }
 
-  successfullContainer = () => (
+  successFullContainer = () => (
     <div className="anothersubmitcontainer">
       <img
         src="https://assets.ccbp.in/frontend/react-js/success-icon-img.png"
@@ -136,7 +133,7 @@ class RegistrationForm extends Component {
         <div className="subcontainer">
           <h1 className="heading">Registration</h1>
           {submit ? (
-            <div>{this.successfullContainer()}</div>
+            <div>{this.successFullContainer()}</div>
           ) : (
             <div>{this.submitForm()}</div>
           )}
