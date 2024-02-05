@@ -45,6 +45,8 @@ class RegistrationForm extends Component {
       this.setState(prevState => ({
         firstNameErrormsg: true,
       }))
+    } else {
+      this.setState({firstNameErrormsg: false})
     }
   }
 
@@ -53,6 +55,8 @@ class RegistrationForm extends Component {
       this.setState(prevState => ({
         lastNameErrormsg: true,
       }))
+    } else {
+      this.setState({lastNameErrormsg: false})
     }
   }
 
