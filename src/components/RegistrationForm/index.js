@@ -42,9 +42,9 @@ class RegistrationForm extends Component {
 
   onBlurfirstname = event => {
     if (event.target.value === '') {
-      this.setState(prevState => ({
+      this.setState({
         firstNameErrormsg: true,
-      }))
+      })
     } else {
       this.setState({firstNameErrormsg: false})
     }
@@ -52,22 +52,22 @@ class RegistrationForm extends Component {
 
   onBlurlastname = event => {
     if (event.target.value === '') {
-      this.setState(prevState => ({
+      this.setState({
         lastNameErrormsg: true,
-      }))
+      })
     } else {
       this.setState({lastNameErrormsg: false})
     }
   }
 
   onSubmitanother = () => {
-    this.setState(prevState => ({
+    this.setState({
       submit: false,
       firstName: '',
       lastName: '',
       firstNameErrormsg: false,
       lastNameErrormsg: false,
-    }))
+    })
   }
 
   submitForm = () => {
